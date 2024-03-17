@@ -1,106 +1,71 @@
 [![INFORMS Journal on Computing Logo](https://INFORMSJoC.github.io/logos/INFORMS_Journal_on_Computing_Header.jpg)](https://pubsonline.informs.org/journal/ijoc)
 
-# CacheTest
+## ABIP
+### ADMM-based Interior Point Method for Linear and Conic Programming
 
-This archive is distributed in association with the [INFORMS Journal on
-Computing](https://pubsonline.informs.org/journal/ijoc) under the [MIT License](LICENSE).
+ABIP is a new framework that applies alternating direction method of multipliers (ADMM) to implement interior point method (IPM) for solving large-scale linear programs (LP) and conic programs (QCP).
 
-The software and data in this repository are a snapshot of the software and data
-that were used in the research reported on in the paper 
-[This is a Template](https://doi.org/10.1287/ijoc.2019.0000) by T. Ralphs. 
-The snapshot is based on 
-[this SHA](https://github.com/tkralphs/JoCTemplate/commit/f7f30c63adbcb0811e5a133e1def696b74f3ba15) 
-in the development repository. 
+ABIP(LP) was initially developed by **[Tianyi Lin (https://github.com/tyDLin)](https://github.com/tyDLin)** and is currently maintained by **[LEAVES](https://leaves.shufe.edu.cn)**  optimization software platform. 
 
-**Important: This code is being developed on an on-going basis at 
-https://github.com/tkralphs/JoCTemplate. Please go there if you would like to
-get a more recent version or would like support**
+### Version
+Current version of ABIP is 2.0
 
-## Cite
+### Reference
 
-To cite the contents of this repository, please cite both the paper and this repo, using their respective DOIs.
+- Lin, Tianyi, et al. "An ADMM-based interior-point method for large-scale linear programming." Optimization Methods and Software (2020): 1-36.
+- Deng, Qi, et al. "New Developments of ADMM-based Interior Point Methods for Linear Programming and Conic Programming." *arXiv preprint arXiv:2209.01793* (2022).
 
-https://doi.org/10.1287/ijoc.2019.0000
+### Installation
 
-https://doi.org/10.1287/ijoc.2019.0000.cd
+We provide the Matlab interface. The C interface is planned for 3.0 release.
+To install ABIP, install [`Intel OneAPI MKL`](https://www.intel.com/content/www/us/en/developer/tools/oneapi/toolkits.html#base-kit) first.
 
-Below is the BibTex for citing this snapshot of the respoitory.
+We suggest that the user set the environment variables by using the script provided by OneAPI.
+It is typically located at `path-to-oneapi/setvars.sh`.
 
-```
-@article{CacheTest,
-  author =        {T. Ralphs},
-  publisher =     {INFORMS Journal on Computing},
-  title =         {{CacheTest}},
-  year =          {2020},
-  doi =           {10.1287/ijoc.2019.0000.cd},
-  url =           {https://github.com/INFORMSJoC/2019.0000},
-}  
-```
+For example, on Ubuntu, the root path of OneAPI is `/opt/intel/oneapi`, then you can run the following,
 
-## Description
+```bash
+source /opt/intel/oneapi/setvars.sh       
+``` 
 
-The goal of this software is to demonstrate the effect of cache optimization.
+When you finish the setups, use `install.m` script in the main direction.
 
-## Building
+### Basic usages of ABIP
 
-In Linux, to build the version that multiplies all elements of a vector by a
-constant (used to obtain the results in [Figure 1](results/mult-test.png) in the
-paper), stepping K elements at a time, execute the following commands.
+ABIP accepts standard sedumi format defined using $A, b, c, K$.
+
+To call it, use
 
 ```
-make mult
+[x, y, s, info] = abip(data, K, params)
 ```
 
-Alternatively, to build the version that sums the elements of a vector (used
-to obtain the results [Figure 2](results/sum-test.png) in the paper), stepping K
-elements at a time, do the following.
+|   Parameter   | Explanation                                            |
+| :-----------: | :----------------------------------------------------- |
+|    verbose    | If log is turned on                                    |
+|   normalize   | Whether to perform data scaling before the solve       |
+|      pcg      | Whether to use iterative solver for linear systems     |
+| max_admm_iter | Maximum ADMM iteration                                 |
+| max_ipm_iter  | Maximum IPM iteration                                  |
+|   timelimit   | Time limit                                             |
+|      tol      | Relative tolerance of convergence                      |
+|    solver     | Choose which solver to use, -1: automatic 1: force QCP |
 
-```
-make clean
-make sum
-```
-
-Be sure to make clean before building a different version of the code.
 
 ## Results
 
-Figure 1 in the paper shows the results of the multiplication test with different
-values of K using `gcc` 7.5 on an Ubuntu Linux box.
-
-![Figure 1](results/mult-test.png)
-
-Figure 2 in the paper shows the results of the sum test with different
-values of K using `gcc` 7.5 on an Ubuntu Linux box.
-
-![Figure 1](results/sum-test.png)
 
 ## Replicating
 
-To replicate the results in [Figure 1](results/mult-test), do either
-
-```
-make mult-test
-```
-or
-```
-python test.py mult
-```
-To replicate the results in [Figure 2](results/sum-test), do either
-
-```
-make sum-test
-```
-or
-```
-python test.py sum
-```
+To replicate the results in the paper, please refer to the README [here](scripts/README.md)
 
 ## Ongoing Development
 
 This code is being developed on an on-going basis at the author's
-[Github site](https://github.com/tkralphs/JoCTemplate).
+[Github site](https://github.com/leavesgrp/ABIP).
 
 ## Support
 
 For support in using this software, submit an
-[issue](https://github.com/tkralphs/JoCTemplate/issues/new).
+[issue](https://github.com/leavesgrp/ABIP/issues/new).
