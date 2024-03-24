@@ -31,9 +31,22 @@ source /opt/intel/oneapi/setvars.sh
 
 When you finish the setups, use `install.m` script in the main direction.
 
-### Basic usages of ABIP
 
-ABIP accepts standard sedumi format defined using $A, b, c, K$.
+## Basic Usage
+
+### Basic usages for ABIP-LP
+
+ABIP operates on  the standard form LP, i.e.,
+
+$$
+\begin{aligned}
+\min ~ &c^Tx \\
+\text{s.t.} ~&Ax = b\\
+&x\ge 0
+\end{aligned}
+$$
+
+and accepts standard `sedumi` format defined using $A, b, c, K$.
 
 To call it, use
 
@@ -53,8 +66,41 @@ To call it, use
 |    solver     | Choose which solver to use, -1: automatic 1: force QCP |
 
 
+For convenience, we provide scripts to proceed the standard form LP, reformulates the problem to the appropriate format, see [Replicating](#replicating).
+
+### Basic usages of ABIP-QCP
+
+ABIP operates on the following quadratic cone programming (QCP), i.e.,
+
+$$
+\begin{aligned}
+\min ~ &\frac{1}{2}x^TQx + c^Tx \\
+\text{s.t.} ~&Ax = b\\
+&x\in \mathcal{K}
+\end{aligned}
+$$
+
+where $Q \in \mathbb{S}_{+}^n, c \in \mathbb{R}^n, b \in \mathbb{R}^m, A \in \mathbb{R}^{m \times n}$, and $\mathcal{K}$ is a closed convex cone.
+
+To call it, use
+
+```
+[x, y, s, info] = abip(data, K, params)
+```
+ABIP-QCP shares most of the parameters with ABIP-LP, except for the convex cone K, currently we support following cones:
+|   Parameter   | Explanation                                            |
+| :-----------: | :----------------------------------------------------- |
+|    K.q    | array of second-order cone constraints                                    |
+|   K.rq   | array of rotated second-order cone constraints       |
+|      K.f      | length of free cone     |
+| K.z | length of zero cone                                |
+| K.l  | length of LP cone                                  |
+
+**Note**: columns of data matrix A must be specified in the order above.
+
 ## Results
 
+The result files can be found in `results`
 
 ## Replicating
 
