@@ -1968,6 +1968,9 @@ static abip_float iterate_Q_norm_resd
     }
 }
 
+/*
+@brief the main function
+*/
 abip_int ABIP(solve)
 (
  ABIPWork *w,
