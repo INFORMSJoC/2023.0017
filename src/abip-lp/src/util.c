@@ -291,17 +291,16 @@ void ABIP(set_default_settings)
     d->stgs->restart_fre = 1000;
     d->stgs->restart_thresh = 100000;
     
-    // add by Kurt. 22.05.03
     d->stgs->origin_rescale = 0;
     d->stgs->pc_ruiz_rescale = 1;
     d->stgs->qp_rescale = 0;
     d->stgs->ruiz_iter = 10;
-    d->stgs->hybrid_mu = 1;
+    d->stgs->hybrid_mu = 1; // whether use hybrid mu strategy
     d->stgs->dynamic_sigma = -1.0;
-    d->stgs->hybrid_thresh = 1000;
+    d->stgs->hybrid_thresh = 1000; // the threshold to switch mu strategy
     d->stgs->dynamic_sigma_second = 0.5;
     
-    d->stgs->half_update = 0;
+    d->stgs->half_update = 0; // whether use half update
     d->stgs->avg_criterion = 0;
     
     d->stgs->verbose = VERBOSE;                                             
