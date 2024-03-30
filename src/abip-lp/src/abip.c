@@ -1607,7 +1607,7 @@ static abip_int has_converged
     RETURN 0;
 }
 
-/*@brief validate the input date
+/*@brief validate the input data
 */
 static abip_int validate
  (
