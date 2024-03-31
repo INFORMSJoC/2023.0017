@@ -11,7 +11,9 @@
 
 ABIP(timer) global_timer;
 
-/* printing header */
+/* 
+@brief printing header 
+*/
 static const char *HEADER[] = {
     " ipm iter ", " admm iter ", "     mu ",
     " pri res ", " dua res ", " rel gap ",
@@ -22,7 +24,8 @@ static const abip_int HSPACE = 9;
 static const abip_int HEADER_LEN = 10;
 static const abip_int LINE_LEN = 150;
 
-/*@ brief check whether x is nan
+/**
+@brief check whether x is nan
 */
 static abip_int abip_isnan
  (
@@ -32,7 +35,8 @@ static abip_int abip_isnan
     DEBUG_FUNC
     RETURN(x == NAN || x != x);
 }
-/*@brief set memory free
+/**
+@brief set memory free
 */
 static void free_work
  (
@@ -149,7 +153,8 @@ static void free_work
     
     RETURN;
 }
-/*@brief print the initialization header
+/**
+@brief print the initialization header
 */
 static void print_init_header
  (
@@ -208,7 +213,8 @@ static void print_init_header
     
     RETURN;
 }
-/*@brief if the algorithm fails, fill in the related information
+/**
+@brief if the algorithm fails, fill in the related information
 */
 static void populate_on_failure
  (
@@ -270,7 +276,8 @@ static void populate_on_failure
     RETURN;
 }
 
-/*@brief detect whether the algorithm fails
+/**
+@brief detect whether the algorithm fails
 */
 static abip_int failure
  (
@@ -294,7 +301,8 @@ static abip_int failure
     
     RETURN status;
 }
-/*@brief use warm start
+/**
+@brief use warm start
 */
 static void warm_start_vars
  (
@@ -347,7 +355,8 @@ static void warm_start_vars
     
     RETURN;
 }
-/*@brief use cold start
+/**
+@brief use cold start
 */
 static void cold_start_vars
  (
@@ -370,7 +379,8 @@ static void cold_start_vars
     
     RETURN;
 }
-/*@brief calculate primal residual
+/**
+@brief calculate primal residual
 */
 static abip_float calc_primal_resid
  (
@@ -405,7 +415,8 @@ static abip_float calc_primal_resid
     *nm_A_x = SQRTF(*nm_A_x);
     RETURN SQRTF(pres);
 }
-/*@brief calculate dual residual
+/**
+@brief calculate dual residual
 */
 static abip_float calc_dual_resid
  (
@@ -441,7 +452,8 @@ static abip_float calc_dual_resid
     RETURN SQRTF(dres);
 }
 
-/*@brief calculate the residuals based on given primal-dual solution
+/**
+@brief calculate the residuals based on given primal-dual solution
 */
 static void calc_residuals
  (
@@ -521,7 +533,8 @@ static void calc_residuals
     
     RETURN;
 }
-/*@brief update utilde
+/**
+@brief update utilde
 */
 static abip_int project_lin_sys
  (
@@ -548,7 +561,8 @@ static abip_int project_lin_sys
     RETURN status;
 }
 
-/*@brief update dual variable v
+/**
+@brief update dual variable v
 */
 static void update_dual_vars
  (
@@ -615,7 +629,8 @@ static void restart_vars
     
 }
 
-/*@brief compute the average solution for restart
+/**
+@brief compute the average solution for restart
 */
 static void compute_avg
  (
@@ -696,7 +711,8 @@ static void project_barrier_dual
 }
 
 
-/*@brief update u
+/**
+@brief update u
 */
 static void project_barrier
  (
@@ -731,7 +747,8 @@ static void project_barrier
     RETURN;
 }
 
-/*@brief traditional tedious mu strategy
+/**
+@brief traditional tedious mu strategy
 */
 static void update_barrier
  (
@@ -907,7 +924,8 @@ static void update_barrier
 // #define MYDEBUG
 // #endif
 
-/*@brief LOQO mu strategy
+/**
+@brief LOQO mu strategy
 */
 static void update_barrier_dynamic
  (
@@ -958,7 +976,8 @@ static void update_barrier_dynamic
     // w->gamma = gamma;
 }
 
-/*@brief aggressive mu strategy
+/**
+@brief aggressive mu strategy
 */
 static void update_barrier_dynamic_2
  (
@@ -971,7 +990,8 @@ static void update_barrier_dynamic_2
     w->mu *= MIN(x * w->mu, pow(w->mu, eta));
     return;
 }
-/*@brief reinitialize variables for the next outer loop
+/**
+@brief reinitialize variables for the next outer loop
 */
 static void reinitialize_vars
  (
@@ -1053,7 +1073,8 @@ static void reinitialize_vars
     }
     RETURN;
 }
-/*@brief determine whether the problem is indeterminated
+/**
+@brief determine whether the problem is indeterminated
 */
 static abip_int indeterminate
  (
@@ -1073,7 +1094,8 @@ static abip_int indeterminate
     RETURN ABIP_INDETERMINATE;
 }
 
-/*@brief determine whether the problem is solved
+/**
+@brief determine whether the problem is solved
 */
 static abip_int solved
  (
@@ -1099,7 +1121,7 @@ static abip_int solved
     
     RETURN ABIP_SOLVED;
 }
-/*
+/**
 @brief set dual variable y
 */
 static void sety
@@ -1128,7 +1150,7 @@ static void sety
     
     RETURN;
 }
-/*
+/**
 @brief set primal variable x
 */
 static void setx
@@ -1157,7 +1179,7 @@ static void setx
     
     RETURN;
 }
-/*
+/**
 @brief set slack variable s
 */
 static void sets
@@ -1186,7 +1208,8 @@ static void sets
     
     RETURN;
 }
-/*@brief determine whether the problem is infeasible
+/**
+@brief determine whether the problem is infeasible
 */
 static abip_int infeasible
  (
@@ -1211,7 +1234,8 @@ static abip_int infeasible
     strcpy(info->status, "Infeasible");
     RETURN ABIP_INFEASIBLE;
 }
-/*@brief determine whether the problem is unbounded
+/**
+@brief determine whether the problem is unbounded
 */
 static abip_int unbounded
  (
@@ -1236,7 +1260,8 @@ static abip_int unbounded
     strcpy(info->status, "Unbounded");
     RETURN ABIP_UNBOUNDED;
 }
-/*@brief return the solved status
+/**
+@brief return the solved status
 */
 static abip_int is_solved_status
  (
@@ -1245,7 +1270,8 @@ static abip_int is_solved_status
 {
     RETURN status == ABIP_SOLVED || status == ABIP_SOLVED_INACCURATE;
 }
-/*@brief return the infeasible status
+/**
+@brief return the infeasible status
 */
 static abip_int is_infeasible_status
  (
@@ -1254,7 +1280,8 @@ static abip_int is_infeasible_status
 {
     RETURN status == ABIP_INFEASIBLE || status == ABIP_INFEASIBLE_INACCURATE;
 }
-/*@brief return the unbouned status
+/**
+@brief return the unbouned status
 */
 static abip_int is_unbounded_status
  (
@@ -1263,7 +1290,8 @@ static abip_int is_unbounded_status
 {
     RETURN status == ABIP_UNBOUNDED || status == ABIP_UNBOUNDED_INACCURATE;
 }
-/*@brief store the information after solving
+/**
+@brief store the information after solving
 */
 static void get_info
  (
@@ -1310,7 +1338,8 @@ static void get_info
     
     RETURN;
 }
-/*@brief store the soluton obtained
+/**
+@brief store the soluton obtained
 */
 static void get_solution
  (
@@ -1383,7 +1412,8 @@ static void get_solution
     
     RETURN;
 }
-/*@brief print detailed information
+/**
+@brief print detailed information
 */
 static void print_summary
  (
@@ -1431,7 +1461,8 @@ static void print_summary
     
     RETURN;
 }
-/*@brief print header
+/**
+@brief print header
 */
 static void print_header
  (
@@ -1473,7 +1504,8 @@ static void print_header
     
     RETURN;
 }
-/*@brief print footer
+/**
+@brief print footer
 */
 static void print_footer
  (
@@ -1574,7 +1606,8 @@ static void print_footer
     RETURN;
 }
 
-/*@brief check whether the tolerance level is satisfied
+/**
+@brief check whether the tolerance level is satisfied
 */
 
 static abip_int has_converged
@@ -1607,7 +1640,8 @@ static abip_int has_converged
     RETURN 0;
 }
 
-/*@brief validate the input data
+/**
+@brief validate the input data
 */
 static abip_int validate
  (
@@ -1699,7 +1733,8 @@ static abip_int validate
     RETURN 0;
 }
 
-/*@brief allocate memory
+/**
+@brief allocate memory
 */
 static ABIPWork *init_work
  (
@@ -1802,7 +1837,8 @@ static ABIPWork *init_work
     
     RETURN w;
 }
-/*@brief determine the hyperparameters and do normalization
+/**
+@brief determine the hyperparameters and do normalization
 */
 static abip_int update_work
  (
@@ -1890,7 +1926,8 @@ static abip_int update_work
     RETURN 0;
 }
 
-/*@brief compute the norm difference between iterates
+/**
+@brief compute the norm difference between iterates
 */
 static abip_float iterate_norm_diff
  (
@@ -1908,7 +1945,8 @@ static abip_float iterate_norm_diff
     
     RETURN norm_diff / norm;
 }
-/*@brief compute Q norm to check the inner loop termination criterion
+/**
+@brief compute Q norm to check the inner loop termination criterion
 */
 static abip_float iterate_Q_norm_resd
  (
@@ -2012,7 +2050,7 @@ static abip_float iterate_Q_norm_resd
     }
 }
 
-/*
+/**
 @brief detailed update rule of ABIP
 */
 abip_int ABIP(solve)
@@ -2349,7 +2387,8 @@ ABIPWork *ABIP(init)
     RETURN w;
 }
 
-/*@brief the main function
+/**
+@brief the main function
 */
 abip_int ABIP(main)
 (

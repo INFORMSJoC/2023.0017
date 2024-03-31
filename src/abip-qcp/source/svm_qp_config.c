@@ -2,7 +2,7 @@
 #define MIN_SCALE (1e-3)
 #define MAX_SCALE (1e3)
 
-/*
+/**
 @brief Initialize the svm qp formulation structure
 */
 abip_int init_svmqp(svmqp **self, ABIPData *d, ABIPSettings *stgs) {
@@ -121,7 +121,7 @@ abip_int init_svmqp(svmqp **self, ABIPData *d, ABIPSettings *stgs) {
   return 0;
 }
 
-/*
+/**
 @brief Customized matrix-vector multiplication for the svm qp formulation with
 A untransposed
 */
@@ -134,7 +134,7 @@ void svmqp_A_times(svmqp *self, const abip_float *x, abip_float *y) {
   }
 }
 
-/*
+/**
 @brief Customized matrix-vector multiplication for the svm qp formulation with
 A transposed
 */
@@ -146,7 +146,7 @@ void svmqp_AT_times(svmqp *self, const abip_float *x, abip_float *y) {
   }
 }
 
-/*
+/**
 @brief Check whether the inner loop of the svm qp formulation has converged
 */
 abip_float svmqp_inner_conv_check(svmqp *self, ABIPWork *w) {
@@ -190,7 +190,7 @@ abip_float svmqp_inner_conv_check(svmqp *self, ABIPWork *w) {
   return error_inner;
 }
 
-/*
+/**
 @brief Customized scaling procedure for the svm qp formulation
 */
 void scaling_svmqp_data(svmqp *self, ABIPCone *k) {
@@ -591,7 +591,7 @@ void scaling_svmqp_data(svmqp *self, ABIPCone *k) {
   abip_free(D);
 }
 
-/*
+/**
 @brief Get the unscaled solution of the original svm problem
 */
 void un_scaling_svmqp_sol(svmqp *self, ABIPSolution *sol) {
@@ -622,7 +622,7 @@ void un_scaling_svmqp_sol(svmqp *self, ABIPSolution *sol) {
   sol->s = xi;
 }
 
-/*
+/**
 @brief Calculate the residuals of the svm qp formulation
 */
 void calc_svmqp_residuals(svmqp *self, ABIPWork *w, ABIPResiduals *r,
@@ -755,7 +755,7 @@ void calc_svmqp_residuals(svmqp *self, ABIPWork *w, ABIPResiduals *r,
   abip_free(Qx_ATy_c_s);
 }
 
-/*
+/**
 @brief Formulate the qcp KKT matrix of the svm qp formulation
 */
 cs *form_svmqp_kkt(svmqp *self) {
@@ -819,7 +819,7 @@ cs *form_svmqp_kkt(svmqp *self) {
   return LTL;
 }
 
-/*
+/**
 @brief Initialize the preconditioner of conjugate gradient method for the svm
 qp formulation
 */
@@ -848,7 +848,7 @@ void init_svmqp_precon(svmqp *self) {
   }
 }
 
-/*
+/**
 @brief Get the tolerance of the conjugate gradient method for the svm qp
 formulation
 */
@@ -861,7 +861,7 @@ abip_float get_svmqp_pcg_tol(abip_int k, abip_float error_ratio,
   }
 }
 
-/*
+/**
 @brief Initialize the linear system solver work space for the svm qp
 formulation
 */
@@ -888,7 +888,7 @@ abip_int init_svmqp_linsys_work(svmqp *self) {
   return ABIP(init_linsys_work)(self);
 }
 
-/*
+/**
 @brief Customized linear system solver for the svm qp formulation
 */
 abip_int solve_svmqp_linsys(svmqp *self, abip_float *b,
@@ -996,7 +996,7 @@ abip_int solve_svmqp_linsys(svmqp *self, abip_float *b,
   return 0;
 }
 
-/*
+/**
 @brief Free the linear system solver work space for the svm qp formulation
 */
 void free_svmqp_linsys_work(svmqp *self) { ABIP(free_linsys)(self); }

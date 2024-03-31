@@ -2,7 +2,7 @@
 
 #include <math.h>
 
-/*
+/**
 @brief Elementwise multiplication of two vectors
 */
 /* x = x .* y*/
@@ -12,7 +12,7 @@ void ABIP(c_dot)(abip_float *x, const abip_float *y, const abip_int len) {
   }
 }
 
-/*
+/**
 @brief Calculate the mean of a vector
 */
 /* y = mean(x) */
@@ -30,7 +30,7 @@ abip_float ABIP(vec_mean)(abip_float *x, abip_int len) {
   return y / len;
 }
 
-/*
+/**
 @brief Elementwise multiplication of a vector by a scalar
 */
 /* x = b*a */
@@ -42,7 +42,7 @@ void ABIP(set_as_scaled_array)(abip_float *x, const abip_float *a,
   }
 }
 
-/*
+/**
 @brief Elementwise square root of a vector
 */
 /* x = sqrt(v) */
@@ -53,7 +53,7 @@ void ABIP(set_as_sqrt)(abip_float *x, const abip_float *v, abip_int len) {
   }
 }
 
-/*
+/**
 @brief Elementwise square of a vector
 */
 /* x = v.^2 */
@@ -64,7 +64,7 @@ void ABIP(set_as_sq)(abip_float *x, const abip_float *v, abip_int len) {
   }
 }
 
-/*
+/**
 @brief Elementwise multiplication of a vector by a scalar with replacement
 */
 /* a *= b */
@@ -78,7 +78,7 @@ void ABIP(scale_array)(abip_float *a, const abip_float b, abip_int len) {
   }
 }
 
-/*
+/**
 @brief Dot product of two vectors
 */
 /* x'*y */
@@ -95,7 +95,7 @@ abip_float ABIP(dot)(const abip_float *x, const abip_float *y, abip_int len) {
   return ip;
 }
 
-/*
+/**
 @brief L2 norm of a vector
 */
 /* ||v||_2^2 */
@@ -112,7 +112,7 @@ abip_float ABIP(norm_sq)(const abip_float *v, abip_int len) {
   return nmsq;
 }
 
-/*
+/**
 @brief Square of L2 norm of a vector
 */
 /* ||v||_2 */
@@ -123,7 +123,7 @@ abip_float ABIP(norm)(const abip_float *v, abip_int len) {
   return SQRTF(ABIP(norm_sq)(v, len));
 }
 
-/*
+/**
 @brief L1 norm of a vector
 */
 /* ||x||_1 */
@@ -138,7 +138,7 @@ abip_float ABIP(norm_1)(const abip_float *x, const abip_int len) {
   return result;
 }
 
-/*
+/**
 @brief The absolute value of the largest component of x
 */
 abip_float ABIP(cone_norm_1)(const abip_float *x, const abip_int len) {
@@ -154,7 +154,7 @@ abip_float ABIP(cone_norm_1)(const abip_float *x, const abip_int len) {
   return ABS(max);
 }
 
-/*
+/**
 @brief Calculate the maximum absolute value of a vector
 */
 /* max(|v|) */
@@ -174,7 +174,7 @@ abip_float ABIP(norm_inf)(const abip_float *a, abip_int len) {
   return max;
 }
 
-/*
+/**
 @brief Elementwise addition of two vectors with coefficients
 */
 /* a .+= b */
@@ -185,7 +185,7 @@ void ABIP(add_array)(abip_float *a, const abip_float b, abip_int len) {
   }
 }
 
-/*
+/**
 @brief Elementwise addition of two vectors with coefficients 1
 */
 /* saxpy a += sc*b */
@@ -200,7 +200,7 @@ void ABIP(add_scaled_array)(abip_float *a, const abip_float *b, abip_int len,
   }
 }
 
-/*
+/**
 @brief L2 norm of the difference of two vectors
 */
 /* ||a-b||_2^2 */
@@ -216,7 +216,7 @@ abip_float ABIP(norm_diff)(const abip_float *a, const abip_float *b,
   return SQRTF(nm_diff);
 }
 
-/*
+/**
 @brief Maximum of the difference of two vectors
 */
 /* max(|a-b|) */
@@ -241,7 +241,7 @@ abip_int arr_ind(const abip_int i_col, const abip_int i_row,
                               : (i_row + i_col * nrows);
 }
 
-/*
+/**
 @brief Convert a CSC matrix to a dense matrix
 */
 abip_float *ABIP(csc_to_dense)(const cs *in_csc, const abip_int out_format) {

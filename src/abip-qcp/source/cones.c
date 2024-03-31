@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "cones.h"
 
-/*
+/**
 @brief Calculate the total number of dimensions of all the cones
 */
 /* c = l + f + q[i] + s[i] */
@@ -31,7 +31,7 @@ abip_int ABIP(get_cone_dims)(const ABIPCone* k) {
   return c;
 }
 
-/*
+/**
 @brief Check if the cone dimensions are valid
 */
 abip_int ABIP(validate_cones)(spe_problem* spe, const ABIPCone* k) {
@@ -81,7 +81,7 @@ abip_int ABIP(validate_cones)(spe_problem* spe, const ABIPCone* k) {
   return 0;
 }
 
-/*
+/**
 @brief Get the number of variables and blocks of each cone
 */
 char* ABIP(get_cone_header)(const ABIPCone* k) {
@@ -121,7 +121,7 @@ char* ABIP(get_cone_header)(const ABIPCone* k) {
   return tmp;
 }
 
-/*
+/**
 @brief Barrier subproblem for the second order cone
 */
 /*  x in second order cone
@@ -160,7 +160,7 @@ void ABIP(soc_barrier_subproblem)(abip_float* x, abip_float* tmp,
   abip_free(b);
 }
 
-/*
+/**
 @brief Barrier subproblem for the rotated second order cone
 */
 /*  K = {(t1,t2,x)| 2*t1*t2>||x||}
@@ -247,7 +247,7 @@ void ABIP(rsoc_barrier_subproblem)(abip_float* x, abip_float* tmp,
   abip_free(zeta_x);
 }
 
-/*
+/**
 @brief Barrier subproblem for the free cone
 */
 /*  K = {x | x free}
@@ -259,7 +259,7 @@ void ABIP(free_barrier_subproblem)(abip_float* x, abip_float* tmp,
   }
 }
 
-/*
+/**
 @brief Barrier subproblem for the zero cone
 */
 /*  K = {x | x = 0}
@@ -271,7 +271,7 @@ void ABIP(zero_barrier_subproblem)(abip_float* x, abip_float* tmp,
   }
 }
 
-/*
+/**
 @brief Barrier subproblem for the positive orthant cone
 */
 /*  K = {x | x >= 0}

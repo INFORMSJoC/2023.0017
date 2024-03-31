@@ -4,7 +4,8 @@
 #define MIN_SCALE (1e-3)
 #define MAX_SCALE (1e3)
 
-/*@brief copy matrix A
+/**
+@brief copy matrix A
 */
 abip_int ABIP(copy_A_matrix)
 (
@@ -38,7 +39,8 @@ abip_int ABIP(copy_A_matrix)
     return 1;
 }
 
-/*@brief validate the linear system
+/**
+@brief validate the linear system
 */
 abip_int ABIP(validate_lin_sys)
 (
@@ -91,7 +93,8 @@ abip_int ABIP(validate_lin_sys)
     
     return 0;
 }
-/*@brief set the memory of matrix A free
+/**
+@brief set the memory of matrix A free
 */
 void ABIP(free_A_matrix)
 (
@@ -141,7 +144,8 @@ static void print_A_matrix
 }
 #endif
 
-/*@brief normalize matrix A
+/**
+@brief normalize matrix A
 */
 void ABIP(_normalize_A)
 (
@@ -559,7 +563,8 @@ void ABIP(_normalize_A)
 #endif
     
 }
-/*@brief unnormalize matrix A
+/**
+@brief unnormalize matrix A
 */
 void ABIP(_un_normalize_A)
 (
@@ -587,7 +592,8 @@ void ABIP(_un_normalize_A)
         ABIP(scale_array)(&(A->x[A->p[i]]), E[i] / stgs->scale, A->p[i + 1] - A->p[i]);
     }
 }
-/*@brief compute A^Tx
+/**
+@brief compute A^Tx
 */
 void ABIP(_accum_by_Atrans)
 (
@@ -632,7 +638,8 @@ void ABIP(_accum_by_Atrans)
 #endif
 }
 
-/*@brief compute Ax
+/**
+@brief compute Ax
 */
 void ABIP(_accum_by_A)
 (
@@ -687,7 +694,8 @@ void ABIP(_accum_by_A)
 #endif
 }
 
-/*@brief compute cumulative sum of c
+/**
+@brief compute cumulative sum of c
 */
 abip_float ABIP(cumsum)
 (

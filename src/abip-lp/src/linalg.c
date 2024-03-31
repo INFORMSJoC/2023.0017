@@ -3,7 +3,8 @@
 
 // basic algebra operators
 
-/*@brief compute x = b*a 
+/**
+@brief compute x = b*a 
 */
 void ABIP(set_as_scaled_array)
 (
@@ -20,7 +21,8 @@ void ABIP(set_as_scaled_array)
     }
 }
 
-/*@brief compute x = sqrt(v) 
+/**
+@brief compute x = sqrt(v) 
 */
 void ABIP(set_as_sqrt)
 (
@@ -36,7 +38,8 @@ void ABIP(set_as_sqrt)
     }
 }
 
-/*@brief compute x = v.^2 
+/**
+@brief compute x = v.^2 
 */
 void ABIP(set_as_sq)
 (
@@ -52,7 +55,8 @@ void ABIP(set_as_sq)
     }
 }  
 
-/*@brief compute a *= b 
+/**
+@brief compute a *= b 
 */
 void ABIP(scale_array)
 (
@@ -68,7 +72,8 @@ void ABIP(scale_array)
     }
 }
 
-/*@brief compute x'*y 
+/**
+@brief compute x'*y 
 */
 abip_float ABIP(dot)
 (
@@ -86,7 +91,8 @@ abip_float ABIP(dot)
     return ip;
 }
 
-/*@brief compute||v||_2^2 
+/**
+@brief compute||v||_2^2 
 */
 abip_float ABIP(norm_sq)
 (
@@ -103,7 +109,8 @@ abip_float ABIP(norm_sq)
     return nmsq;
 }
 
-/*@brief compute ||v||_2 
+/**
+@brief compute ||v||_2 
 */
 abip_float ABIP(norm)
 (
@@ -113,7 +120,8 @@ abip_float ABIP(norm)
 {
     return SQRTF(ABIP(norm_sq)(v, len));
 }
-/*@brief compute square root of the minimal absolute value
+/**
+@brief compute square root of the minimal absolute value
 */
 abip_float ABIP(min_abs_sqrt)
 (
@@ -135,7 +143,8 @@ abip_float ABIP(min_abs_sqrt)
     return SQRTF(ref);
 }
 
-/*@brief compute L1 norm 
+/**
+@brief compute L1 norm 
 */
 abip_float ABIP(norm_one)
 (
@@ -152,7 +161,8 @@ abip_float ABIP(norm_one)
     return nmone;
 }
 
-/*@brief compute square root L1 norm 
+/**
+@brief compute square root L1 norm 
 */
 abip_float ABIP(norm_one_sqrt)
 (
@@ -166,7 +176,8 @@ abip_float ABIP(norm_one_sqrt)
 
 
 
-/*@brief compute the infinity norm 
+/**
+@brief compute the infinity norm 
 */
 abip_float ABIP(norm_inf)
 (
@@ -188,7 +199,8 @@ abip_float ABIP(norm_inf)
     return max;
 }
 
-/*@brief compute square root infinity norm 
+/**
+@brief compute square root infinity norm 
 */
 abip_float ABIP(norm_inf_sqrt)
 (
@@ -200,7 +212,8 @@ abip_float ABIP(norm_inf_sqrt)
 }
 // ------
 
-/*@brief compute a .+= b 
+/**
+@brief compute a .+= b 
 */
 void ABIP(add_array)
 (
@@ -216,7 +229,8 @@ void ABIP(add_array)
     }
 } 
 
-/*@brief compute a += sc*b 
+/**
+@brief compute a += sc*b 
 */
 void ABIP(add_scaled_array)
 ( 
@@ -233,7 +247,8 @@ void ABIP(add_scaled_array)
     }
 }
 
-/*@brief compute ||a-b||_2^2 
+/**
+@brief compute ||a-b||_2^2 
 */
 abip_float ABIP(norm_diff)
 (
@@ -253,7 +268,8 @@ abip_float ABIP(norm_diff)
     return SQRTF(nm_diff);
 }
 
-/*@brief compute max(|a-b|) 
+/**
+@brief compute max(|a-b|) 
 */
 abip_float ABIP(norm_inf_diff)
 (

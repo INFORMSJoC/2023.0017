@@ -77,7 +77,8 @@ void set_output_field(mxArray **pout, abip_float *out, abip_int len)
       mxSetN(*pout, 1);
 }
 
-/*@brief obtain data from mex function
+/**
+@brief obtain data from mex function
 */
 void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[]) 
 {
@@ -422,7 +423,8 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
       return;
 }
 
-/*@brief set memory free
+/**
+@brief set memory free
 */
 void free_mex(ABIPData *d) 
 {

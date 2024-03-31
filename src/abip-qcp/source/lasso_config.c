@@ -2,7 +2,7 @@
 #define MIN_SCALE (1e-3)
 #define MAX_SCALE (1e3)
 
-/*
+/**
 @brief Initialize the lasso problem structure
 */
 abip_int init_lasso(lasso **self, ABIPData *d, ABIPSettings *stgs) {
@@ -92,7 +92,7 @@ abip_int init_lasso(lasso **self, ABIPData *d, ABIPSettings *stgs) {
   return 0;
 }
 
-/*
+/**
 @brief Customized matrix-vector multiplication for the lasso problem with A
 untransposed
 */
@@ -109,7 +109,7 @@ void lasso_A_times(lasso *self, const abip_float *x, abip_float *y) {
   ABIP(scale_array)(&y[1], -1, self->m);
 }
 
-/*
+/**
 @brief Customized matrix-vector multiplication for the lasso problem with A
 transposed
 */
@@ -125,7 +125,7 @@ void lasso_AT_times(lasso *self, const abip_float *x, abip_float *y) {
   ABIP(scale_array)(&y[self->m + 2 + self->n], -1, self->n);
 }
 
-/*
+/**
 @brief Customized scaling procedure for the lasso problem
 */
 void scaling_lasso_data(lasso *self, ABIPCone *k) {
@@ -259,7 +259,7 @@ void scaling_lasso_data(lasso *self, ABIPCone *k) {
   }
 }
 
-/*
+/**
 @brief Get the unscaled solution x of the lasso qcp problem
 */
 void get_unscaled_x(lasso *self, abip_float *x, abip_float *us_x) {
@@ -273,7 +273,7 @@ void get_unscaled_x(lasso *self, abip_float *x, abip_float *us_x) {
   }
 }
 
-/*
+/**
 @brief Get the unscaled solution y of the lasso qcp problem
 */
 void get_unscaled_y(lasso *self, abip_float *y, abip_float *us_y) {
@@ -283,7 +283,7 @@ void get_unscaled_y(lasso *self, abip_float *y, abip_float *us_y) {
   }
 }
 
-/*
+/**
 @brief Get the unscaled solution s of the lasso qcp problem
 */
 void get_unscaled_s(lasso *self, abip_float *s, abip_float *us_s) {
@@ -297,7 +297,7 @@ void get_unscaled_s(lasso *self, abip_float *s, abip_float *us_s) {
   }
 }
 
-/*
+/**
 @brief Get the unscaled solution of the original lasso problem
 */
 void un_scaling_lasso_sol(lasso *self, ABIPSolution *sol) {
@@ -317,7 +317,7 @@ void un_scaling_lasso_sol(lasso *self, ABIPSolution *sol) {
   sol->x = beta;
 }
 
-/*
+/**
 @brief Check whether the inner loop of the lasso problem has converged
 */
 abip_float lasso_inner_conv_check(lasso *self, ABIPWork *w) {
@@ -361,7 +361,7 @@ abip_float lasso_inner_conv_check(lasso *self, ABIPWork *w) {
   return error_inner;
 }
 
-/*
+/**
 @brief Calculate the residuals of the lasso qcp problem
 */
 void calc_lasso_residuals(lasso *self, ABIPWork *w, ABIPResiduals *r,
@@ -501,7 +501,7 @@ void calc_lasso_residuals(lasso *self, ABIPWork *w, ABIPResiduals *r,
   abip_free(lambda_ones);
 }
 
-/*
+/**
 @brief Formulate the qcp KKT matrix of the lasso problem
 */
 cs *form_lasso_kkt(lasso *self) {
@@ -564,7 +564,7 @@ cs *form_lasso_kkt(lasso *self) {
   return LTL;
 }
 
-/*
+/**
 @brief Initialize the preconditioner of conjugate gradient method for the lasso
 problem
 */
@@ -586,7 +586,7 @@ void init_lasso_precon(lasso *self) {
   }
 }
 
-/*
+/**
 @brief Get the tolerance of the conjugate gradient method for the lasso problem
 */
 abip_float get_lasso_pcg_tol(abip_int k, abip_float error_ratio,
@@ -618,7 +618,7 @@ abip_float get_lasso_pcg_tol(abip_int k, abip_float error_ratio,
   }
 }
 
-/*
+/**
 @brief Initialize the linear system solver work space for the lasso problem
 */
 abip_int init_lasso_linsys_work(lasso *self) {
@@ -642,7 +642,7 @@ abip_int init_lasso_linsys_work(lasso *self) {
   return ABIP(init_linsys_work)(self);
 }
 
-/*
+/**
 @brief Customized linear system solver for the lasso problem
 */
 abip_int solve_lasso_linsys(lasso *self, abip_float *b,
@@ -716,7 +716,7 @@ abip_int solve_lasso_linsys(lasso *self, abip_float *b,
   return 0;
 }
 
-/*
+/**
 @brief Free the linear system solver work space for the lasso problem
 */
 void free_lasso_linsys_work(lasso *self) { ABIP(free_linsys)(self); }

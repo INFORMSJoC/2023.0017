@@ -4,7 +4,8 @@
 #include "ldl.h"
 #include "direct.h"
 #include "abip_pardiso.h"
-/*brief print matrix
+/**
+@brief print matrix
 */
 static void printMat( cs *A ) {
     abip_int *Ap = A->p, *Ai = A->i; abip_float *Ax = A->x;
@@ -16,7 +17,8 @@ static void printMat( cs *A ) {
         }
     }
 }
-/*brief factorize matrix by pardiso
+/**
+@brief factorize matrix by pardiso
 */
 extern abip_int pardisoFactorize( ABIPLinSysWork *p, cs *A ) {
     /* Factorize the spsMat matrix */
@@ -43,7 +45,8 @@ extern abip_int pardisoFactorize( ABIPLinSysWork *p, cs *A ) {
     
     return error;
 }
-/*brief Free the internal structure of pardiso
+/**
+@brief Free the internal structure of pardiso
 */
 extern void pardisoFree( ABIPLinSysWork *p, ABIPMatrix *A ) {
     abip_int phase = PARDISO_FREE, error = PARDISO_OK, n = A->m + A->n, one = 1;
@@ -57,7 +60,8 @@ extern void pardisoFree( ABIPLinSysWork *p, ABIPMatrix *A ) {
     }
 }
 
-/*@brief Solve the linear system S * X = B using Pardiso 
+/**
+@brief Solve the linear system S * X = B using Pardiso 
 */
 extern void pardisoSolve( ABIPLinSysWork *p, ABIPMatrix *A, abip_float *b ) {
   

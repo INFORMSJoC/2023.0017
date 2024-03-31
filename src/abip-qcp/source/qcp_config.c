@@ -2,7 +2,7 @@
 #define MIN_SCALE (1e-3)
 #define MAX_SCALE (1e3)
 
-/*
+/**
 @brief Initialize the qcp problem structure
 */
 abip_int init_qcp(qcp **self, ABIPData *d, ABIPSettings *stgs) {
@@ -65,7 +65,7 @@ abip_int init_qcp(qcp **self, ABIPData *d, ABIPSettings *stgs) {
   return 0;
 }
 
-/*
+/**
 @brief Matrix-vector multiplication for the general qcp problem with A
 untransposed
 */
@@ -75,7 +75,7 @@ void qcp_A_times(qcp *self, const abip_float *x, abip_float *y) {
   }
 }
 
-/*
+/**
 @brief Matrix-vector multiplication for the general qcp problem with A
 transposed
 */
@@ -85,7 +85,7 @@ void qcp_AT_times(qcp *self, const abip_float *x, abip_float *y) {
   }
 }
 
-/*
+/**
 @brief Scale the data for the qcp problem
 */
 void scaling_qcp_data(qcp *self, ABIPCone *k) {
@@ -490,7 +490,7 @@ void scaling_qcp_data(qcp *self, ABIPCone *k) {
   abip_free(D);
 }
 
-/*
+/**
 @brief Get the unscaled solution of the general qcp problem
 */
 void un_scaling_qcp_sol(qcp *self, ABIPSolution *sol) {
@@ -512,7 +512,7 @@ void un_scaling_qcp_sol(qcp *self, ABIPSolution *sol) {
   }
 }
 
-/*
+/**
 @brief Check whether the inner loop of the genral qcp problem has converged
 */
 abip_float qcp_inner_conv_check(qcp *self, ABIPWork *w) {
@@ -556,7 +556,7 @@ abip_float qcp_inner_conv_check(qcp *self, ABIPWork *w) {
   return error_inner;
 }
 
-/*
+/**
 @brief Calculate the residuals of the general qcp problem
 */
 void calc_qcp_residuals(qcp *self, ABIPWork *w, ABIPResiduals *r,
@@ -690,7 +690,7 @@ void calc_qcp_residuals(qcp *self, ABIPWork *w, ABIPResiduals *r,
   abip_free(Qx_ATy_c_s);
 }
 
-/*
+/**
 @brief Formulate the qcp KKT matrix of the general qcp problem
 */
 /*K =  -rho_dr(1:m)*I           -A
@@ -747,7 +747,7 @@ cs *form_qcp_kkt(qcp *self) {
   return K_csc;
 }
 
-/*
+/**
 @brief Initialize the preconditioner of conjugate gradient method for the
 general qcp problem
 */
@@ -779,7 +779,7 @@ void init_qcp_precon(qcp *self) {
   }
 }
 
-/*
+/**
 @brief Get the tolerance of the conjugate gradient method for the general qcp
 problem
 */
@@ -792,7 +792,7 @@ abip_float get_qcp_pcg_tol(abip_int k, abip_float error_ratio,
   }
 }
 
-/*
+/**
 @brief Initialize the linear system solver work space for the general qcp
 problem
 */
@@ -820,7 +820,7 @@ abip_int init_qcp_linsys_work(qcp *self) {
   return ABIP(init_linsys_work)(self);
 }
 
-/*
+/**
 @brief Linear system solver for the general qcp problem
 */
 abip_int solve_qcp_linsys(qcp *self, abip_float *b, abip_float *pcg_warm_start,
@@ -880,7 +880,7 @@ abip_int solve_qcp_linsys(qcp *self, abip_float *b, abip_float *pcg_warm_start,
   return 0;
 }
 
-/*
+/**
 @brief Free the linear system solver work space for the general qcp problem
 */
 void free_qcp_linsys_work(qcp *self) { ABIP(free_linsys)(self); }

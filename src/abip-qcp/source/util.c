@@ -197,7 +197,7 @@ void ABIP(free_sol)(ABIPSolution *sol) {
   }
 }
 
-/*
+/**
 @brief Default parameter settings
 */
 void ABIP(set_default_settings)(ABIPData *d) {

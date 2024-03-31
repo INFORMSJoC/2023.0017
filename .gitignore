@@ -184,3 +184,5 @@ dualnv/thirdparty
 /out/
 *.whl
 .DS_Store
+.texpadtmp
+.texpadtmp

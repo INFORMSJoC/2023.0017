@@ -2,7 +2,7 @@
 #define MIN_SCALE (1e-3)
 #define MAX_SCALE (1e3)
 
-/*
+/**
 @brief Initialize the svm socp formulation structure
 */
 abip_int init_svm(svm **self, ABIPData *d, ABIPSettings *stgs) {
@@ -168,7 +168,7 @@ abip_int init_svm(svm **self, ABIPData *d, ABIPSettings *stgs) {
   return 0;
 }
 
-/*
+/**
 @brief Customized matrix-vector multiplication for the svm socp formulation with
 A untransposed
 */
@@ -195,7 +195,7 @@ void svm_A_times(svm *self, const abip_float *x, abip_float *y) {
   abip_free(tmp);
 }
 
-/*
+/**
 @brief Customized matrix-vector multiplication for the svm socp formulation with
 A transposed
 */
@@ -228,7 +228,7 @@ void svm_AT_times(svm *self, const abip_float *x, abip_float *y) {
   abip_free(tmp);
 }
 
-/*
+/**
 @brief Check whether the inner loop of the svm socp formulation has converged
 */
 abip_float svm_inner_conv_check(svm *self, ABIPWork *w) {
@@ -277,7 +277,7 @@ abip_float svm_inner_conv_check(svm *self, ABIPWork *w) {
   return err_inner;
 }
 
-/*
+/**
 @brief Customized scaling procedure for the svm socp formulation
 */
 void scaling_svm_data(svm *self, ABIPCone *k) {
@@ -407,7 +407,7 @@ void scaling_svm_data(svm *self, ABIPCone *k) {
   }
 }
 
-/*
+/**
 @brief Get the unscaled solution of the original svm problem
 */
 void un_scaling_svm_sol(svm *self, ABIPSolution *sol) {
@@ -439,7 +439,7 @@ void un_scaling_svm_sol(svm *self, ABIPSolution *sol) {
   sol->s = xi;
 }
 
-/*
+/**
 @brief Calculate the residuals of the svm socp formulation
 */
 void calc_svm_residuals(svm *self, ABIPWork *w, ABIPResiduals *r,
@@ -571,7 +571,7 @@ void calc_svm_residuals(svm *self, ABIPWork *w, ABIPResiduals *r,
   abip_free(dr);
 }
 
-/*
+/**
 @brief Formulate the qcp KKT matrix of the svm socp formulation
 */
 cs *form_svm_kkt(svm *self) {
@@ -635,7 +635,7 @@ cs *form_svm_kkt(svm *self) {
   return LTL;
 }
 
-/*
+/**
 @brief Initialize the preconditioner of conjugate gradient method for the svm
 socp formulation
 */
@@ -662,7 +662,7 @@ void init_svm_precon(svm *self) {
   }
 }
 
-/*
+/**
 @brief Get the tolerance of the conjugate gradient method for the svm socp
 formulation
 */
@@ -695,7 +695,7 @@ abip_float get_svm_pcg_tol(abip_int k, abip_float error_ratio,
   }
 }
 
-/*
+/**
 @brief Initialize the linear system solver work space for the svm socp
 formulation
 */
@@ -722,7 +722,7 @@ abip_int init_svm_linsys_work(svm *self) {
   return ABIP(init_linsys_work)(self);
 }
 
-/*
+/**
 @brief Customized linear system solver for the svm socp formulation
 */
 abip_int solve_svm_linsys(svm *self, abip_float *b, abip_float *pcg_warm_start,
@@ -806,7 +806,7 @@ abip_int solve_svm_linsys(svm *self, abip_float *b, abip_float *pcg_warm_start,
   return 0;
 }
 
-/*
+/**
 @brief Free the linear system solver work space for the svm socp formulation
 */
 void free_svm_linsys_work(svm *self) { ABIP(free_linsys)(self); }

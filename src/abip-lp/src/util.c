@@ -39,7 +39,8 @@ abip_float ABIP(tocq)
 
 #elif(defined __APPLE__)
 
-/*@brief define tic function
+/**
+@brief define tic function
 */
 void ABIP(tic)
 (
@@ -101,7 +102,8 @@ abip_float ABIP(tocq)
 }
 
 #endif
-/*@brief define toc function
+/**
+@brief define toc function
 */
 abip_float ABIP(toc)
 (
@@ -112,7 +114,8 @@ abip_float ABIP(toc)
     abip_printf("time: %8.4f milli-seconds.\n", time);
     return time;
 }
-/*@brief store time consumed
+/**
+@brief store time consumed
 */
 abip_float ABIP(str_toc)
 (
@@ -124,7 +127,8 @@ abip_float ABIP(str_toc)
     abip_printf("%s - time: %8.4f milli-seconds.\n", str, time);
     return time;
 }
-/*@brief print the iterates
+/**
+@brief print the iterates
 */
 void ABIP(print_work)
 (
@@ -152,7 +156,8 @@ void ABIP(print_work)
         abip_printf("%f\n", w->v[i]);
     }
 }
-/*@brief print some parameters
+/**
+@brief print some parameters
 */
 void ABIP(print_data)
 (
@@ -180,7 +185,8 @@ void ABIP(print_data)
     abip_printf("eps_pen = %4f\n", d->stgs->eps_pen);
     
 }
-/*@brief print array
+/**
+@brief print array
 */
 void ABIP(print_array)
 (
@@ -214,7 +220,8 @@ void ABIP(print_array)
     abip_printf("\n");
 }
 
-/*@brief set the memory of problem data free
+/**
+@brief set the memory of problem data free
 */
 void ABIP(free_data)
 (
@@ -246,7 +253,8 @@ void ABIP(free_data)
         abip_free(d);
     }
 }
-/*@brief set the memory of solution free
+/**
+@brief set the memory of solution free
 */
 void ABIP(free_sol)
 (
@@ -274,7 +282,8 @@ void ABIP(free_sol)
     }
 }
 
-/*@brief set default setting
+/**
+@brief set default setting
 */
 void ABIP(set_default_settings)
 (

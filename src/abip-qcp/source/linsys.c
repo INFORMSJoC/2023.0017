@@ -6,7 +6,7 @@
 #define MIN_SCALE (1e-3)
 #define MAX_SCALE (1e3)
 
-/*
+/**
 @brief Copy a matrix
 */
 abip_int ABIP(copy_A_matrix)(ABIPMatrix **dstp, const ABIPMatrix *src) {
@@ -33,7 +33,7 @@ abip_int ABIP(copy_A_matrix)(ABIPMatrix **dstp, const ABIPMatrix *src) {
   return 1;
 }
 
-/*
+/**
 @brief Get the method used to solve the linear system
 */
 char *ABIP(get_lin_sys_method)(spe_problem *spe) {
@@ -65,7 +65,7 @@ char *ABIP(get_lin_sys_method)(spe_problem *spe) {
   return tmp;
 }
 
-/*
+/**
 @brief Get the summary infomation of the linear system
 */
 char *ABIP(get_lin_sys_summary)(spe_problem *self, ABIPInfo *info) {
@@ -96,7 +96,7 @@ char *ABIP(get_lin_sys_summary)(spe_problem *self, ABIPInfo *info) {
   return str;
 }
 
-/*
+/**
 @brief Check the validity of the linear system
 */
 abip_int ABIP(validate_lin_sys)(const ABIPMatrix *A) {
@@ -146,7 +146,7 @@ abip_int ABIP(validate_lin_sys)(const ABIPMatrix *A) {
   return 0;
 }
 
-/*
+/**
 @brief Free the memory of a matrix
 */
 void ABIP(free_A_matrix)(ABIPMatrix *A) {
@@ -184,7 +184,7 @@ static void print_A_matrix(const ABIPMatrix *A) {
 }
 #endif
 
-/*
+/**
 @brief Add the transposed matrix-vector product to a vector
 */
 // y += A'*x
@@ -222,7 +222,7 @@ void ABIP(accum_by_Atrans)(const ABIPMatrix *A, const abip_float *x,
 #endif
 }
 
-/*
+/**
 @brief Add the matrix-vector product to a vector
 */
 // y += A*x
@@ -624,7 +624,7 @@ abip_int abip_cholsol(spe_problem *self, abip_float *b, abip_int n) {
   return (ok);
 }
 
-/*
+/**
 @brief Preconditioned conjugate gradient method for general linear system
 */
 abip_int pcg(spe_problem *self, abip_float *b, abip_float *x, abip_float rho_x,
@@ -719,7 +719,7 @@ abip_int pcg(spe_problem *self, abip_float *b, abip_float *x, abip_float rho_x,
   return i + 1;
 }
 
-/*
+/**
 @brief y = (R_x + Q + A' R_y^{-1} A) x
 */
 static void mat_vec(spe_problem *self, const abip_float *x, abip_float *y) {
@@ -749,7 +749,7 @@ static void mat_vec(spe_problem *self, const abip_float *x, abip_float *y) {
   abip_free(tem);
 }
 
-/*
+/**
 @brief Preconditioned conjugate gradient method for qcp
 */
 abip_int qcp_pcg(spe_problem *self, abip_float *b, abip_float *x,
@@ -850,7 +850,7 @@ abip_int qcp_pcg(spe_problem *self, abip_float *b, abip_float *x,
   return i + 1;
 }
 
-/*
+/**
 @brief y = ( rhoy * I + A * H^-1 * A' ) x , where H = (rhox * I + Q)
 */
 static void svm_mat_vec(spe_problem *self, const abip_float *x, abip_float *y) {
@@ -887,7 +887,7 @@ static void svm_mat_vec(spe_problem *self, const abip_float *x, abip_float *y) {
   abip_free(H);
 }
 
-/*
+/**
 @brief Customized preconditioned conjugate gradient solver for QP formulation of
 SVM
 */
@@ -989,7 +989,7 @@ abip_int svmqp_pcg(spe_problem *self, abip_float *b, abip_float *x,
   return i + 1;
 }
 
-/*
+/**
 @brief MKL-LAPACK dense cholesky linear system solver
 */
 abip_int init_dense_chol(spe_problem *spe) {
@@ -1021,7 +1021,7 @@ abip_int dense_chol_free(spe_problem *spe) {
 }
 /*-----------------------------------------------------------------*/
 
-/*
+/**
 @brief Initialize linear system solver work space
 */
 abip_int ABIP(init_linsys_work)(spe_problem *spe) {
@@ -1135,7 +1135,7 @@ abip_int ABIP(init_linsys_work)(spe_problem *spe) {
   }
 }
 
-/*
+/**
 @brief solve linear system according to the specific linsys solver
 */
 abip_int ABIP(solve_linsys)(spe_problem *spe, abip_float *b, abip_int n,
@@ -1175,7 +1175,7 @@ abip_int ABIP(solve_linsys)(spe_problem *spe, abip_float *b, abip_int n,
   }
 }
 
-/*
+/**
 @brief free memory for linear system solver
 */
 abip_int ABIP(free_linsys)(spe_problem *spe) {

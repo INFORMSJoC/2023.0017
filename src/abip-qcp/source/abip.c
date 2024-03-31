@@ -1070,7 +1070,7 @@ abip_float adjust_barrier(ABIPWork *w, ABIPResiduals *r, spe_problem *spe) {
   return gamma * POWF(w->mu, spe->stgs->psi);
 }
 
-/*
+/**
 @brief Main solve iteration of the solver
 */
 abip_int ABIP(solve)(ABIPWork *w, const ABIPData *d, ABIPSolution *sol,
@@ -1248,7 +1248,7 @@ abip_int ABIP(solve)(ABIPWork *w, const ABIPData *d, ABIPSolution *sol,
   RETURN info->status_val;
 }
 
-/*
+/**
 @brief Free the memory allocated for the solver
 */
 void ABIP(finish)(ABIPWork *w, spe_problem *spe) {
@@ -1265,7 +1265,7 @@ void ABIP(finish)(ABIPWork *w, spe_problem *spe) {
   RETURN;
 }
 
-/*
+/**
 @brief Initialize and allocate memory for the solver
 */
 ABIPWork *ABIP(init)(const ABIPData *d, ABIPInfo *info, spe_problem *s,
@@ -1310,7 +1310,7 @@ ABIPWork *ABIP(init)(const ABIPData *d, ABIPInfo *info, spe_problem *s,
   RETURN w;
 }
 
-/*
+/**
 @brief Specify the problem type and initialize the problem
 */
 abip_int ABIP(init_problem)(spe_problem **s, ABIPData *d, ABIPSettings *stgs,
@@ -1329,7 +1329,7 @@ abip_int ABIP(init_problem)(spe_problem **s, ABIPData *d, ABIPSettings *stgs,
   }
 }
 
-/*
+/**
 @brief the main function to call the abip conic solver
 */
 abip_int abip(const ABIPData *d, ABIPSolution *sol, ABIPInfo *info,
