@@ -5,6 +5,7 @@ Here is the data needed for replicating the experiments.
 ## LP 
 
 ### Netlib
+Netlib instances can be found at https://www.netlib.org/lp/data/index.html.
 
 A off-the-shelf script to download the instances (not up-to-date) can be found at [FirstOrderLp.jl](https://github.com/google-research/FirstOrderLp.jl), under the folder `benchmarking`.
 
