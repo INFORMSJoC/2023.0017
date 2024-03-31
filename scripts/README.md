@@ -1,5 +1,9 @@
 # A Guide for Benchmarking
 We assume the access to standard libraries such as the MIPLIB, Netlib, cblib and so on.
+
+## Data Preparation
+See [Preparing Data](../data/README.md).
+
 ## Benchmarking ABIP-LP
 The scripts are collected at `scripts/bench-lp`. 
 
