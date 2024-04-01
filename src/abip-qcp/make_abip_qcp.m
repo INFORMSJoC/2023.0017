@@ -62,7 +62,7 @@ for i = 1:length(ldl_files)
 end
 ldl = fullfile(pldl, ldllist);
 
-pamd = fullfile('.', 'amd');  
+pamd = fullfile('.', '../external/amd');  
 
 amd_files = dir( [pamd '/*.c'] );
 amdlist = [];
@@ -81,9 +81,12 @@ ldl_include = fullfile("qdldl", "include");
 
 mkl_include = fullfile(mkl_path, "include");
 
-amd_include = "amd";
+external_include = "../external/";
 
-inc = [pinc,mkl_include,cs_include,ldl_include, amd_include];
+amd_include = "../external/amd";
+
+
+inc = [pinc,mkl_include,cs_include,ldl_include,amd_include,external_include];
 inc = join("-I" + inc);
 
 if(debug == 0)

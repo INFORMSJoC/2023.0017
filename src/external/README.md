@@ -1,0 +1,4 @@
+## External Dependencies
+
+
+This AMD and LDL code are from the official SuiteSparse library: a suite of sparse matrix algorithms authored or co-authored by Tim Davis, Texas A&M University. You can visit this repo by: https://github.com/DrTimothyAldenDavis/SuiteSparse/tree/dev. We include each license in the subfolder, respectively.
