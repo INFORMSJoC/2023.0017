@@ -1,19 +1,56 @@
 [![INFORMS Journal on Computing Logo](https://INFORMSJoC.github.io/logos/INFORMS_Journal_on_Computing_Header.jpg)](https://pubsonline.informs.org/journal/ijoc)
 
-## ABIP
-### ADMM-based Interior Point Method for Linear and Conic Programming
+# An Enhanced ADMM-based Interior Point Method for Linear and Conic Optimization
 
-ABIP is a new framework that applies alternating direction method of multipliers (ADMM) to implement interior point method (IPM) for solving large-scale linear programs (LP) and conic programs (QCP).
+This archive is distributed in association with the [INFORMS Journal on Computing](https://pubsonline.informs.org/journal/ijoc) under the [MIT License](https://github.com/INFORMSJoC/2022.0372/blob/master/LICENSE).
 
-ABIP(LP) was initially developed by **[Tianyi Lin (https://github.com/tyDLin)](https://github.com/tyDLin)** and is currently maintained by **[LEAVES](https://leaves.shufe.edu.cn)**  optimization software platform. 
+The software and data in this repository are a snapshot of the software and data that were used in the research reported on in the paper [An Enhanced ADMM-based Interior Point Method for Linear and Conic Optimization](https://doi.org/10.1287/ijoc.2023.0017) by Qi Deng, Qing Feng, Wenzhi Gao, Dongdong Ge, Bo Jiang, Yuntian Jiang, Jingsong Liu, Tianhao Liu, Chenyu Xue, Yinyu Ye and Chuwen Zhang.
+
+## Cite
+
+To cite the contents of this repository, please cite both the paper and this repo, using their respective DOIs.
+
+https://doi.org/10.1287/ijoc.2023.0017
+
+https://doi.org/10.1287/ijoc.2023.0017.cd
+
+Below is the BibTex for citing this snapshot of the respoitory.
+
+```
+@article{deng2023new,
+  title  =    {New Developments of ADMM-based Interior Point Methods for Linear Programming and Conic Programming}, 
+  author =    {Qi Deng and Qing Feng and Wenzhi Gao and Dongdong Ge and Bo Jiang and Yuntian Jiang and Jingsong Liu and Tianhao Liu and Chenyu Xue and Yinyu Ye and Chuwen Zhang},
+  publisher = {INFORMS Journal on Computing},
+  year =      {2024},
+  doi =       {10.1287/ijoc.2023.0017.cd},
+  url =       {https://github.com/INFORMSJoC/2023.0017},
+  note =      {Available for download at https://github.com/INFORMSJoC/2023.0017},
+}  
+```
+
+## Description
+
+ADMM-based Interior Point Method for Linear and Conic Programming **(ABIP)** is a new framework that applies alternating direction method of multipliers (ADMM) to implement interior point method (IPM) for solving large-scale linear programs (LP) and conic programs (QCP).
+
+ABIP (LP part) was initially developed by **[Tianyi Lin (https://github.com/tyDLin)](https://github.com/tyDLin)** and is currently maintained by **[LEAVES](https://github.com/leavesgrp)** optimization software platform. 
+
+The original ABIP follows the following paper:
+
+```
+@article{lin_admm-based_2021,
+	title = {An {ADMM}-based interior-point method for large-scale linear programming},
+	volume = {36},
+	number = {2-3},
+	journal = {Optimization Methods and Software},
+	author = {Lin, Tianyi and Ma, Shiqian and Ye, Yinyu and Zhang, Shuzhong},
+	year = {2021},
+	note = {Publisher: Taylor \& Francis},
+	pages = {389--424},
+}
+```
 
 ### Version
 Current version of ABIP is 2.0
-
-### Reference
-
-- Lin, Tianyi, et al. "An ADMM-based interior-point method for large-scale linear programming." Optimization Methods and Software (2020): 1-36.
-- Deng, Qi, et al. "New Developments of ADMM-based Interior Point Methods for Linear Programming and Conic Programming." *arXiv preprint arXiv:2209.01793* (2022).
 
 ### Installation
 
@@ -26,6 +63,7 @@ It is typically located at `path-to-oneapi/setvars.sh`.
 For example, on Ubuntu, the root path of OneAPI is `/opt/intel/oneapi`, then you can run the following,
 
 ```bash
+cd to_the_root_directory_of_abip
 source /opt/intel/oneapi/setvars.sh       
 ``` 
 
