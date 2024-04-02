@@ -44,7 +44,7 @@ end
 
 src = fullfile(psrc, srclist);
 
-pcs = fullfile('.', 'csparse', 'Source');  
+pcs = fullfile('.', '../external/csparse', 'Source');  
 
 cs_files = dir( [pcs '/*.c'] );
 cslist = [];
@@ -53,7 +53,7 @@ for i = 1:length(cs_files)
 end
 cs = fullfile(pcs, cslist);
 
-pldl = fullfile('.', 'qdldl', 'src');  
+pldl = fullfile('.', '../external/qdldl', 'src');  
 
 ldl_files = dir( [pldl '/*.c'] );
 ldllist = [];
@@ -75,9 +75,9 @@ src = [src,cs,ldl,mex_file,amd];
 
 pinc = "include";
 
-cs_include = fullfile("csparse", "Include");
+cs_include = fullfile(".", "../external/csparse", "Include");
 
-ldl_include = fullfile("qdldl", "include");
+ldl_include = fullfile(".", "../external/qdldl", "include");
 
 mkl_include = fullfile(mkl_path, "include");
 

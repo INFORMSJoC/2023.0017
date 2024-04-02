@@ -156,21 +156,21 @@ For support in using this software, submit an
 
 ## License
 
-### Main License
+### Project License
 
-Licensed under the MIT License (see `LICENSE` file).
+This project is licensed under the MIT License, as detailed in the `LICENSE` file.
 
-### External Dependencies
+### External Dependencies and Licenses
 
-All located in `src/external/`:
+All external dependencies are consolidated in `src/external/`, with each dependency's license:
 
-- **AMD (SuiteSparse)**: BSD. Freely used under BSD terms.
-- **LDL & CSparse (SuiteSparse)**: GNU LGPL. Modifications must remain under LGPL.
-- **QDLDL (OSQP)**: Apache License 2.0. Modifications should be noted.
+- **AMD (SuiteSparse)**: BSD license allows broad usage with minimal restrictions. The license file is included in its respective directory.
+- **LDL & CSparse (SuiteSparse)**: Under GNU LGPL, permitting use and modification provided changes are shared under LGPL. License files are placed within their specific directories.
+- **QDLDL (OSQP)**: Apache License 2.0 supports use and modification, requiring clear documentation of changes and the original copyright notice. The license file is located in the relevant directory.
 
 ### Contributions
 
-Contributions are licensed under the project's MIT license. Review individual licenses in `src/external/` for compliance.
+Contributors agree that their contributions will be licensed under the MIT License. We encourage contributors to review the licenses of external dependencies housed in `src/external/` to ensure compliance with their terms.
 
 
 ---
