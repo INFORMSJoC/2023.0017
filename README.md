@@ -67,7 +67,7 @@ cd to_the_root_directory_of_abip
 source /opt/intel/oneapi/setvars.sh       
 ``` 
 
-When you finish the setups, use `install.m` script in the main direction.
+When you finish the setups, use `install.m` script in the root directory
 
 
 ## Basic Usage
@@ -154,26 +154,23 @@ This code is being developed on an on-going basis at the author's
 For support in using this software, submit an
 [issue](https://github.com/leavesgrp/ABIP/issues/new).
 
-
 ## License
 
-### Main Project License
+### Main License
 
-This project is licensed under the MIT License. A copy of the MIT License is included in this project; see the file LICENSE for more details.
+Licensed under the MIT License (see `LICENSE` file).
 
-### Third-Party Software and Licenses
+### External Dependencies
 
-This project incorporates the SuiteSparse components AMD and LDL, which are included within the `./src/external/` directory and are subject to their own licenses.
+All located in `src/external/`:
 
-#### SuiteSparse: AMD and LDL
+- **AMD (SuiteSparse)**: BSD. Freely used under BSD terms.
+- **LDL & CSparse (SuiteSparse)**: GNU LGPL. Modifications must remain under LGPL.
+- **QDLDL (OSQP)**: Apache License 2.0. Modifications should be noted.
 
-- **Location**: `./src/external/`
-- **License**: The AMD and LDL components from SuiteSparse are included under their specific licenses. AMD is licensed under the GNU Lesser General Public License (LGPL), which allows for both static and dynamic linking with different kinds of software but requires that modifications to the AMD code be shared under the same license. The license details for LDL are similar, focusing on open-source distribution and modification.
-- **Compliance**: It is important for users and contributors to this project to comply with the LGPL and specific licensing terms for each included SuiteSparse component. The license texts for AMD and LDL are located within their respective subdirectories in `./src/external/`. Reviewing these texts is crucial to ensure proper use and compliance.
+### Contributions
 
-### Notice
-
-This README section and the inclusion of third-party software within this project are provided for informational purposes only and do not constitute legal advice. Users are responsible for ensuring their use of this project complies with all applicable licenses. If you have any questions or concerns about using this project in compliance with these terms, please consult with a legal expert.
+Contributions are licensed under the project's MIT license. Review individual licenses in `src/external/` for compliance.
 
 
 ---
