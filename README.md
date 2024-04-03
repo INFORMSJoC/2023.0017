@@ -67,7 +67,7 @@ cd to_the_root_directory_of_abip
 source /opt/intel/oneapi/setvars.sh       
 ``` 
 
-When you finish the setups, use `install.m` script in the main direction.
+When you finish the setups, use `install.m` script in the root directory
 
 
 ## Basic Usage
@@ -153,3 +153,26 @@ This code is being developed on an on-going basis at the author's
 
 For support in using this software, submit an
 [issue](https://github.com/leavesgrp/ABIP/issues/new).
+
+## License
+
+### Project License
+
+This project is licensed under the MIT License, as detailed in the `LICENSE` file.
+
+### External Dependencies and Licenses
+
+All external dependencies are consolidated in `src/external/`, with each dependency's license:
+
+- **AMD (SuiteSparse)**: BSD license allows broad usage with minimal restrictions. The license file is included in its respective directory.
+- **LDL & CSparse (SuiteSparse)**: Under GNU LGPL, permitting use and modification provided changes are shared under LGPL. License files are placed within their specific directories.
+- **QDLDL (OSQP)**: Apache License 2.0 supports use and modification, requiring clear documentation of changes and the original copyright notice. The license file is located in the relevant directory.
+
+### Contributions
+
+Contributors agree that their contributions will be licensed under the MIT License. We encourage contributors to review the licenses of external dependencies housed in `src/external/` to ensure compliance with their terms.
+
+
+---
+
+This README section is provided for informational purposes only and does not constitute legal advice. If you have any questions or concerns about the licensing terms or compliance, especially regarding third-party dependencies, please consult with a legal expert.
